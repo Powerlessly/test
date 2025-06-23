@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			body {
+				text-align: center;
+				background-color: #F5CAD1;
+				/* display: flex; */
+				justify-content: center;
+				align-items: center;
+				/* justify-items: center; */
+			}
+			.gif {
+				width: 250px;
+				margin-top: 100px;
+			}
+			.btn {
+				width: 100%;
+				margin-top: 40px;
+				display: flex;
+				gap: 30px;
+				justify-content: center;
+			}
+			.ok, .no {
+				width: 100px;
+				height: 50px;
+				border-radius: 10px;
+				border: transparent solid 1px;
+				font-size: 18px;
+				color: white;
+				/* font-weight: 500; */
+			}
+			.ok {
+				background-color: hotpink;
+			}
+			.no {
+				background-color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<img class="gif" src="http://dl.weshineapp.com/gif/20240605/da5eea564be5f7b6f3b349581c27a9d3.gif?id=da5eea564be5f7b6f3b349581c27a9d3"/>
+		<br>
+		<!-- 按钮 -->
+		<div class="btn">
+			<input type="button" class="ok" name="ok" value="和好"/>
+			<input type="button" class="no" name="no" value="不要"/>
+		</div>
+		<h2 class="ai" style="display: none;">爱你永不变</h2>
+	</body>
+	<script>
+		// 获取元素
+		let gif = document.querySelector('.gif')
+		let btns = document.querySelector('.btn')
+		let okBtn = document.querySelector('.ok')
+		let noBtn = document.querySelector('.no')
+		let ai = document.querySelector('.ai')
+		// 定义元素
+		let imgIndex = 0;
+		let imgList = [
+			'http://dl.weshineapp.com/gif/20240605/da5eea564be5f7b6f3b349581c27a9d3.gif?id=da5eea564be5f7b6f3b349581c27a9d3',
+			// 'img/no1.gif',
+			'https://s1.aigei.com/prevfiles/16c975f9f3d047eaa6894ac3770c6248.gif?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:t8MhdHKr6QiD-nulU7cL49AAN-E=',
+			// 'img/no2.gif',
+			'https://s1.aigei.com/prevfiles/515709568c664ce6a6326d97076f4dff.gif?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:tcT4F8gHpYlUgrGN3AyTxQcPNx8='
+		];
+		let okIndex = 0
+		let okwidthList = [
+			'120px',
+			'140px'
+		]
+		let okheightList = [
+			'60px',
+			'70px'
+		]
+		let okfontSizeList = [
+			'20px',
+			'22px'
+		]
+		
+		let noIndex = 0
+		let nowidthList = [
+			'90px',
+			'80px',
+		]
+		let noheightList = [
+			'40px',
+			'30px'
+		]
+		let nofontSizeList = [
+			'16px',
+			'14px'
+		]
+		// 绑定事件
+		okBtn.onclick = function() {
+			gif.src = 'https://s1.aigei.com/prevfiles/bddc78a741dd45398f486725a9d15f5d.gif?e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:6uHtWWc-HU4gKy8mcBX3bpGRIWc='
+			okBtn.style.display = 'none'
+			noBtn.style.display = 'none'
+			gif.style.width = '400px'
+			ai.style.display = ''
+		}
+		noBtn.onclick = function() {
+			if(imgIndex == imgList.length - 1) {
+				noBtn.disabled = true
+				noBtn.value = '不要你点了'
+			}else {
+				imgIndex += 1
+			}
+			gif.src = imgList[imgIndex]
+			okBtn.style.width = okwidthList[okIndex]
+			okBtn.style.height = okheightList[okIndex]
+			okBtn.style.fontSize = okfontSizeList[okIndex]
+			okIndex += 1
+			
+			noBtn.style.width = nowidthList[noIndex]
+			noBtn.style.height = noheightList[noIndex]
+			noBtn.style.fontSize = nofontSizeList[noIndex]
+			noIndex += 1
+		}
+	</script>
+</html>
